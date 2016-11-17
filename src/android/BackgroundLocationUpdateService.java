@@ -148,9 +148,9 @@ public class BackgroundLocationUpdateService
         registerReceiver(detectedActivitiesReceiver, new IntentFilter(Constants.DETECTED_ACTIVITY_UPDATE));
 
         // Receivers for start/stop recording
-        registerReceiver(startRecordingReceiver, new IntentFilter(Constants.START_RECORDING));
-        registerReceiver(stopRecordingReceiver, new IntentFilter(Constants.STOP_RECORDING));
-        registerReceiver(startAggressiveReceiver, new IntentFilter(Constants.CHANGE_AGGRESSIVE));
+        // registerReceiver(startRecordingReceiver, new IntentFilter(Constants.START_RECORDING));
+        // registerReceiver(stopRecordingReceiver, new IntentFilter(Constants.STOP_RECORDING));
+        // registerReceiver(startAggressiveReceiver, new IntentFilter(Constants.CHANGE_AGGRESSIVE));
 
         // Location criteria
         criteria = new Criteria();
