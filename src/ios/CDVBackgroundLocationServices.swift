@@ -54,7 +54,7 @@ var activityCommandDelegate:CDVCommandDelegate?;
         super.pluginInitialize();
 
         locationManager.requestLocationPermissions();
-        self.promptForNotificationPermission();
+        // self.promptForNotificationPermission();
 
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -128,10 +128,8 @@ var activityCommandDelegate:CDVCommandDelegate?;
 
         log("Are we in the background? \(background)");
 
-        if(background) {
-            locationManager.startUpdating(false);
-            activityManager.startDetection();
-        }
+        locationManager.startUpdating(false);
+        // activityManager.startDetection();
 
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
         commandDelegate!.sendPluginResult(pluginResult, callbackId:command.callbackId)
@@ -142,7 +140,7 @@ var activityCommandDelegate:CDVCommandDelegate?;
         enabled = false;
 
         locationManager.stopBackgroundTracking();
-        activityManager.stopDetection();
+        // activityManager.stopDetection();
 
         let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK)
         commandDelegate!.sendPluginResult(pluginResult, callbackId:command.callbackId)
@@ -183,8 +181,8 @@ var activityCommandDelegate:CDVCommandDelegate?;
         background = false;
 
         taskManager.endAllBackgroundTasks();
-        locationManager.stopUpdating();
-        activityManager.stopDetection();
+        // locationManager.stopUpdating();
+        // activityManager.stopDetection();
     }
 
     func onSuspend() {
@@ -192,8 +190,8 @@ var activityCommandDelegate:CDVCommandDelegate?;
         background = true;
 
         if(enabled) {
-            locationManager.startUpdating(false);
-            activityManager.startDetection();
+            // locationManager.startUpdating(false);
+            // activityManager.startDetection();
         }
     }
 
@@ -202,8 +200,8 @@ var activityCommandDelegate:CDVCommandDelegate?;
         background = true;
 
         if(enabled) {
-            locationManager.startUpdating(false);
-            activityManager.startDetection();
+            // locationManager.startUpdating(false);
+            // activityManager.startDetection();
         }
     }
 
@@ -339,9 +337,9 @@ class LocationManager : NSObject, CLLocationManagerDelegate {
             if(useActivityDetection) {
                     msg += " Stationary : \(activityManager.isStationary)";
             }
-            
+
             log(msg);
-            NotificationManager.manager.notify(msg);
+            // NotificationManager.manager.notify(msg);
 
             locationCommandDelegate?.runInBackground({
 

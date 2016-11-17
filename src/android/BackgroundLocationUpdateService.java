@@ -247,6 +247,8 @@ public class BackgroundLocationUpdateService
         Log.i(TAG, "- useActivityDetection: "   + useActivityDetection);
         Log.i(TAG, "- activityDetectionInterval: "   + activitiesInterval);
 
+        startRecording();
+
         //We want this service to continue running until it is explicitly stopped
         return START_REDELIVER_INTENT;
     }
